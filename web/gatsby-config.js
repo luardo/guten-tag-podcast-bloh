@@ -19,6 +19,12 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd
       }
-    }
+    },
+    {
+      resolve: "gatsby-plugin-postcss",
+      options: {
+        postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
+      },
+    },
   ]
 }

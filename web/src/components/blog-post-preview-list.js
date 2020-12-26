@@ -3,6 +3,7 @@ import React from 'react'
 import BlogPostPreview from './blog-post-preview'
 
 import styles from './blog-post-preview-list.module.css'
+import EpisodePreview from './EpisodePreview'
 
 function BlogPostPreviewGrid (props) {
   return (
@@ -12,7 +13,7 @@ function BlogPostPreviewGrid (props) {
         {props.nodes &&
           props.nodes.map(node => (
             <li key={node.id}>
-              <BlogPostPreview {...node} isInList />
+              <EpisodePreview {...node} isInList />
             </li>
           ))}
       </ul>

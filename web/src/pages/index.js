@@ -1,15 +1,17 @@
-import React from 'react'
-import {graphql} from 'gatsby'
+import React from "react";
+import { graphql } from "gatsby";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from '../lib/helpers'
-import BlogPostPreviewList from '../components/blog-post-preview-list'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
+  filterOutDocsPublishedInTheFuture,
+} from "../lib/helpers";
+import Container from "../components/container";
+import GraphQLErrorList from "../components/graphql-error-list";
+import SEO from "../components/seo";
+import Layout from "../containers/layout";
+import Hero from "../components/Hero";
+import EpisodeList from "../components/EpisodeList";
+import Button from "../components/Button";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -39,9 +41,10 @@ export const query = graphql`
       title
       description
       keywords
+      about
     }
     posts: allSanityPost(
-      limit: 6
+      limit: 3
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
@@ -62,51 +65,50 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-const IndexPage = props => {
-  const {data, errors} = props
+const IndexPage = (props) => {
+  const { data, errors } = props;
 
   if (errors) {
     return (
       <Layout>
         <GraphQLErrorList errors={errors} />
       </Layout>
-    )
+    );
   }
 
-  const site = (data || {}).site
+  const site = (data || {}).site;
   const postNodes = (data || {}).posts
     ? mapEdgesToNodes(data.posts)
-      .filter(filterOutDocsWithoutSlugs)
-      .filter(filterOutDocsPublishedInTheFuture)
-    : []
+        .filter(filterOutDocsWithoutSlugs)
+        .filter(filterOutDocsPublishedInTheFuture)
+    : [];
 
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    )
+    );
   }
 
   return (
     <Layout>
-      <SEO
-        title={site.title}
-        description={site.description}
-        keywords={site.keywords}
-      />
+      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <Hero siteTitle={site.title} />
       <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
         {postNodes && (
-          <BlogPostPreviewList
-            title='Latest blog posts'
+          <EpisodeList
+            title="Ultimos episodios"
             nodes={postNodes}
-            browseMoreHref='/archive/'
+            browseMoreHref="/archive/"
           />
         )}
+        <Button text="Ver todos los episodios"/>
+
+        
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
