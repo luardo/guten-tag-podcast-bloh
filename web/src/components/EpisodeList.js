@@ -6,10 +6,10 @@ const EpisodeList = (props) => {
   return (
     <>
       <SectionHeadline title={props.title} />
-      <div class="flex flex-wrap justify-between -mx-6 ">
+      <div className="flex flex-wrap justify-between -mx-6 ">
         {props.nodes &&
           props.nodes.map((node) => (
-            <div key={node.id} class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+            <div key={node.id} className="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
               <EpisodePreview {...node} isInList />
             </div>
           ))}

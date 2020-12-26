@@ -41,7 +41,6 @@ export const query = graphql`
       title
       description
       keywords
-      about
     }
     posts: allSanityPost(
       limit: 3
@@ -105,7 +104,7 @@ const IndexPage = (props) => {
         )}
         <Button text="Ver todos los episodios"/>
 
-        
+
       </Container>
     </Layout>
   );
