@@ -13,8 +13,7 @@ import Hero from "../components/Hero";
 import EpisodeList from "../components/EpisodeList";
 import Button from "../components/Button";
 import SectionHeadline from "../components/SectionHeadline";
-import PortableText from "../components/portableText";
-import BigTextBlock from "../components/bigTextBlock";
+import BigTextBlock from "../components/BigTextBlock";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
