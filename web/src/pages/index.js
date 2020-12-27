@@ -12,6 +12,9 @@ import Layout from "../containers/layout";
 import Hero from "../components/Hero";
 import EpisodeList from "../components/EpisodeList";
 import Button from "../components/Button";
+import SectionHeadline from "../components/SectionHeadline";
+import PortableText from "../components/portableText";
+import BigTextBlock from "../components/bigTextBlock";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -41,6 +44,7 @@ export const query = graphql`
       title
       description
       keywords
+      about
     }
     posts: allSanityPost(
       limit: 3
@@ -96,15 +100,14 @@ const IndexPage = (props) => {
       <Hero siteTitle={site.title} />
       <Container>
         {postNodes && (
-          <EpisodeList
-            title="Ultimos episodios"
-            nodes={postNodes}
-            browseMoreHref="/archive/"
-          />
+          <EpisodeList title="Ultimos episodios" nodes={postNodes} browseMoreHref="/archive/" />
         )}
-        <Button text="Ver todos los episodios"/>
+        <Button text="Ver todos los episodios" />
+      </Container>
 
-
+      <Container color="blue">
+        <SectionHeadline title="Sobre nosotros" />
+        {site.about && <BigTextBlock text={site.about} />}
       </Container>
     </Layout>
   );

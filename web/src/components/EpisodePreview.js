@@ -21,8 +21,7 @@ const EpisodePreview = (props) => {
               alt={props.mainImage.alt}
             />
           )}
-          <p className="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-          <div className="w-full font-bold text-xl text-blue px-6">{props.title}</div>
+          <div className="w-full font-bold text-xl text-blue p-6">{props.title}</div>
           <p className="text-gray-800 font-serif text-base px-6 mb-5">
             {props._rawExcerpt && <PortableText blocks={props._rawExcerpt} />}
           </p>

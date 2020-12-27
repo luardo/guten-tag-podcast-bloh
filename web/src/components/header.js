@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
+import Button from "./Button";
 
 const Header = ({ siteTitle }) => (
   <nav className="bg-turquoise">
@@ -15,30 +16,26 @@ const Header = ({ siteTitle }) => (
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
               <a href="#" className="bg-starship text-black px-3 py-2 rounded-md text-sm font-medium">
-                Dashboard
+                Inicio
               </a>
               <a
                 href="#"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >
-                Team
+                Todos los Episodios
               </a>
               <a
                 href="#"
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >
-                Projects
-              </a>
-              <a
-                href="#"
-                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Calendar
+                Colabora
               </a>
             </div>
           </div>
         </div>
-        <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"></div>
+        <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <Button text="Colabora con nosotros!"/>
+        </div>
       </div>
     </div>
   </nav>
