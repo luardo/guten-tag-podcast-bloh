@@ -63,6 +63,18 @@ export default {
       ]
     },
     {
+      name: 'spotifyLink',
+      type: 'string',
+      title: 'Spotify Link',
+      description: 'Insert a spotify link'
+    },
+    {
+      name: 'applePodcast',
+      type: 'string',
+      title: 'Apple Podcast Link',
+      description: 'Insert a apple podcastlink'
+    },
+    {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body'
