@@ -69,7 +69,7 @@ export default {
       description: 'Insert a spotify link'
     },
     {
-      name: 'applePodcast',
+      name: 'applePodcastLink',
       type: 'string',
       title: 'Apple Podcast Link',
       description: 'Insert a apple podcastlink'
