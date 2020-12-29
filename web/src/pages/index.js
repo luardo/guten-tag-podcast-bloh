@@ -63,6 +63,8 @@ export const query = graphql`
           slug {
             current
           }
+          spotifyLink
+          applePodcastLink
         }
       }
     }
@@ -87,6 +89,8 @@ const IndexPage = (props) => {
         .filter(filterOutDocsPublishedInTheFuture)
     : [];
 
+  const LatestNode = [...postNodes].shift();
+
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
@@ -96,12 +100,14 @@ const IndexPage = (props) => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Hero siteTitle={site.title} />
+      <Hero siteTitle={site.title} post={LatestNode} />
       <Container>
         {postNodes && (
           <EpisodeList title="Ultimos episodios" nodes={postNodes} browseMoreHref="/archive/" />
         )}
-        <Button text="Ver todos los episodios" />
+        <div class="flex justify-items-center">
+          <Button text="Ver todos los episodios" />
+        </div>
       </Container>
 
       <Container color="blue">

@@ -10,7 +10,7 @@ const Button = ({ text, color }) => {
     <button
       className={`
       ${color === "starship" ? starshipClasses : turquoiseClasses}
-      mx-auto rounded-full border-2 font-bold px-5 transition text-center uppercase py-2 text-base`}
+      block rounded-full border-2 font-bold px-5 transition text-center uppercase py-2 text-base`}
     >
       {text}
     </button>

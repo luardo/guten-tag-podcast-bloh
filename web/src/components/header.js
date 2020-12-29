@@ -15,7 +15,10 @@ const Header = ({ siteTitle }) => (
           </div>
           <div className="hidden sm:block sm:ml-6">
             <div className="flex space-x-4">
-              <a href="#" className="bg-starship text-black px-3 py-2 rounded-md text-sm font-medium">
+              <a
+                href="#"
+                className="bg-starship text-black px-3 py-2 rounded-md text-sm font-medium"
+              >
                 Inicio
               </a>
               <a
@@ -33,8 +36,8 @@ const Header = ({ siteTitle }) => (
             </div>
           </div>
         </div>
-        <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <Button text="Colabora con nosotros!"/>
+        <div className="absolute inset-y-0 right-0  items-center pr-2 hidden sm:flex">
+          <Button text="Colabora con nosotros!" />
         </div>
       </div>
     </div>
